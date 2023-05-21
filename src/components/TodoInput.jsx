@@ -1,4 +1,7 @@
+import { useState } from 'react';
 import styled from 'styled-components';
+import { v4 as uuidv4 } from 'uuid';
+import clsx from 'clsx';
 
 const StyledAddTodoContainer = styled.div`
   min-height: 52px;
@@ -46,7 +49,7 @@ const StyledInputContainer = styled.div`
       font-size: 13px;
     }
   }
-  $.active {
+  .active {
     input::placeholder {
       color: var(--gray);
     }
@@ -67,15 +70,49 @@ const StyledAddTodoActionContainer = styled.div`
     }
   }
 `;
-const TodoInput = () => {
+const TodoInput = ({ onAddTodo }) => {
+  const [inputValue, setInputValue] = useState('');
+
+  const onChangeHandler = (e) => {
+    const value = e.target.value;
+    setInputValue(value);
+  };
+
+  const onKeyDownHandler = (e) => {
+    if (e.key === 'Enter') {
+      onAddTodoHandler();
+    }
+  };
+
+  const onAddTodoHandler = () => {
+    if (inputValue.trim() === '') return;
+    onAddTodo({
+      id: uuidv4(),
+      title: inputValue.trim(),
+      isDone: false,
+    });
+    setInputValue('');
+  };
+
   return (
-    <StyledAddTodoContainer>
+    <StyledAddTodoContainer
+      className={clsx('', { active: inputValue.length > 0 })}
+    >
       <StyledLabelIcon className="icon" htmlFor="add-todo-input" />
       <StyledInputContainer>
-        <input id="add-todo-input" type="text" placeholder="新增工作" />
+        <input
+          id="add-todo-input"
+          type="text"
+          placeholder="新增工作"
+          value={inputValue}
+          onChange={onChangeHandler}
+          onKeyDown={onKeyDownHandler}
+        />
       </StyledInputContainer>
-      <StyledAddTodoActionContainer>
-        <button className="btn-reset">新增</button>
+      <StyledAddTodoActionContainer className={clsx('', { active: inputValue.length > 0 })}>
+        <button className="btn-reset" onClick={onAddTodoHandler}>
+          新增
+        </button>
       </StyledAddTodoActionContainer>
     </StyledAddTodoContainer>
   );

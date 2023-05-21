@@ -1,9 +1,11 @@
 import styled from 'styled-components';
+import clsx from 'clsx';
 import {
   CheckActiveIcon,
   CheckCircleIcon,
   CheckHoverIcon,
 } from 'assets/images';
+import { useRef, useState } from 'react';
 
 const StyledTaskItem = styled.div`
   min-height: 52px;
@@ -100,18 +102,54 @@ const StyledTaskItem = styled.div`
   }
 `;
 
-const TodoItem = () => {
+const TodoItem = ({
+  id,
+  title,
+  isDone,
+  isEdit,
+  onSave,
+  onDelete,
+  onChangeMode,
+}) => {
+  const [done, setDone] = useState(isDone);
+  const inputRef = useRef(null);
+
+  const onToggleDone = () => {
+    setDone(!done);
+  };
+
+  const handleKeyDown = (e) => {
+    if (inputRef.current.value.length > 0 && e.key === 'Enter') {
+      if (inputRef.current.value.trim() === '') return;
+      onSave?.({ id, title: inputRef.current.value });
+    }
+    if (e.key === 'Escape') {
+      onChangeMode?.({ id, isEdit: false });
+    }
+  };
+
   return (
-    <StyledTaskItem>
+    <StyledTaskItem className={clsx('', { done, edit: isEdit })}>
       <div className="task-item-checked">
-        <span className="icon icon-checked" />
+        <span className="icon icon-checked" onClick={onToggleDone} />
       </div>
-      <div className="task-item-body">
-        <span className="task-item-body-text">todo</span>
-        <input className="task-item-body-input" />
+      <div
+        className="task-item-body"
+        onDoubleClick={() => onChangeMode?.({ id, isEdit: true })}
+      >
+        <span className="task-item-body-text">{title}</span>
+        <input
+          className="task-item-body-input"
+          ref={inputRef}
+          onKeyDown={handleKeyDown}
+          defaultValue={title}
+        />
       </div>
-      <div className="task-item-action ">
-        <button className="btn-reset btn-destroy icon"></button>
+      <div className="task-item-action">
+        <button
+          className="btn-reset btn-destroy icon"
+          onClick={() => onDelete?.({ id })}
+        ></button>
       </div>
     </StyledTaskItem>
   );
