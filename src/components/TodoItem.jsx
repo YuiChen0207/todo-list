@@ -5,7 +5,11 @@ import {
   CheckCircleIcon,
   CheckHoverIcon,
 } from 'assets/images';
+<<<<<<< HEAD
 import { useRef } from 'react';
+=======
+import { useRef, useState } from 'react';
+>>>>>>> 8700042235de5fd5803b7250e53ad1b7232cf8c0
 
 const StyledTaskItem = styled.div`
   min-height: 52px;
@@ -102,6 +106,7 @@ const StyledTaskItem = styled.div`
   }
 `;
 
+<<<<<<< HEAD
 const TodoItem = ({ todo, onSave, onDelete, onToggleDone, onChangeMode }) => {
   const inputRef = useRef(null);
 
@@ -111,10 +116,36 @@ const TodoItem = ({ todo, onSave, onDelete, onToggleDone, onChangeMode }) => {
     }
     if (e.key === 'Escape') {
       onChangeMode?.({ id: todo.id, isEdit: false });
+=======
+const TodoItem = ({
+  id,
+  title,
+  isDone,
+  isEdit,
+  onSave,
+  onDelete,
+  onChangeMode,
+}) => {
+  const [done, setDone] = useState(isDone);
+  const inputRef = useRef(null);
+
+  const onToggleDone = () => {
+    setDone(!done);
+  };
+
+  const handleKeyDown = (e) => {
+    if (inputRef.current.value.length > 0 && e.key === 'Enter') {
+      if (inputRef.current.value.trim() === '') return;
+      onSave?.({ id, title: inputRef.current.value });
+    }
+    if (e.key === 'Escape') {
+      onChangeMode?.({ id, isEdit: false });
+>>>>>>> 8700042235de5fd5803b7250e53ad1b7232cf8c0
     }
   };
 
   return (
+<<<<<<< HEAD
     <StyledTaskItem
       className={clsx('', { done: todo.isDone, edit: todo.isEdit })}
     >
@@ -131,17 +162,36 @@ const TodoItem = ({ todo, onSave, onDelete, onToggleDone, onChangeMode }) => {
         }}
       >
         <span className="task-item-body-text">{todo.title}</span>
+=======
+    <StyledTaskItem className={clsx('', { done, edit: isEdit })}>
+      <div className="task-item-checked">
+        <span className="icon icon-checked" onClick={onToggleDone} />
+      </div>
+      <div
+        className="task-item-body"
+        onDoubleClick={() => onChangeMode?.({ id, isEdit: true })}
+      >
+        <span className="task-item-body-text">{title}</span>
+>>>>>>> 8700042235de5fd5803b7250e53ad1b7232cf8c0
         <input
           className="task-item-body-input"
           ref={inputRef}
           onKeyDown={handleKeyDown}
+<<<<<<< HEAD
           defaultValue={todo.title}
+=======
+          defaultValue={title}
+>>>>>>> 8700042235de5fd5803b7250e53ad1b7232cf8c0
         />
       </div>
       <div className="task-item-action">
         <button
           className="btn-reset btn-destroy icon"
+<<<<<<< HEAD
           onClick={() => onDelete?.(todo.id)}
+=======
+          onClick={() => onDelete?.({ id })}
+>>>>>>> 8700042235de5fd5803b7250e53ad1b7232cf8c0
         ></button>
       </div>
     </StyledTaskItem>

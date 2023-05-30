@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 import { useAuth } from 'contexts/AuthContext';
+=======
+>>>>>>> 8700042235de5fd5803b7250e53ad1b7232cf8c0
 import styled from 'styled-components';
 
 const StyledFooter = styled.footer`
@@ -33,6 +36,7 @@ const StyledButton = styled.button`
 `;
 
 const Footer = ({ todos }) => {
+<<<<<<< HEAD
   const { logout } = useAuth;
   const todosLength = todos.length;
 
@@ -44,6 +48,14 @@ const Footer = ({ todos }) => {
     <StyledFooter>
       <p>剩餘項目數： {todosLength}</p>
       <StyledButton onClick={handleClick}>登出</StyledButton>
+=======
+  const todosLength = todos.length;
+
+  return (
+    <StyledFooter>
+      <p>剩餘項目數： {todosLength}</p>
+      <StyledButton>登出</StyledButton>
+>>>>>>> 8700042235de5fd5803b7250e53ad1b7232cf8c0
     </StyledFooter>
   );
 };
