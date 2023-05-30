@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/todo-list/static/css/main.4922d5c4.css",
-    "main.js": "/todo-list/static/js/main.47552995.js",
+    "main.js": "/todo-list/static/js/main.ce0fd1d7.js",
     "static/js/787.17f4b47e.chunk.js": "/todo-list/static/js/787.17f4b47e.chunk.js",
     "static/media/ac-logo.svg": "/todo-list/static/media/ac-logo.f4e0f3cb828663732e8d001491c2b394.svg",
     "index.html": "/todo-list/index.html",
@@ -9,11 +9,11 @@
     "static/media/check-active.svg": "/todo-list/static/media/check-active.95ca055ccb9b3ed7ac7e7719b388680e.svg",
     "static/media/check-circle.svg": "/todo-list/static/media/check-circle.30720b46020899b2d89e14826f4cc653.svg",
     "main.4922d5c4.css.map": "/todo-list/static/css/main.4922d5c4.css.map",
-    "main.47552995.js.map": "/todo-list/static/js/main.47552995.js.map",
+    "main.ce0fd1d7.js.map": "/todo-list/static/js/main.ce0fd1d7.js.map",
     "787.17f4b47e.chunk.js.map": "/todo-list/static/js/787.17f4b47e.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.4922d5c4.css",
-    "static/js/main.47552995.js"
+    "static/js/main.ce0fd1d7.js"
   ]
 }
