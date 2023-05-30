@@ -6,7 +6,6 @@ import {
 } from 'components/common/auth.styled';
 import { ACLogoIcon } from 'assets/images';
 import { AuthInput } from 'components';
-<<<<<<< HEAD
 import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
@@ -16,7 +15,7 @@ const LoginPage = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
-  const { isAuthenticated, login } = useAuth;
+  const { isAuthenticated, login } = useAuth();
 
   const handleClick = async () => {
     if (!username.length || !password.length) return;
@@ -49,10 +48,6 @@ const LoginPage = () => {
     }
   }, [navigate, isAuthenticated]);
 
-=======
-
-const LoginPage = () => {
->>>>>>> 8700042235de5fd5803b7250e53ad1b7232cf8c0
   return (
     <AuthContainer>
       <div>
@@ -61,7 +56,6 @@ const LoginPage = () => {
       <h1>登入 Todo</h1>
 
       <AuthInputContainer>
-<<<<<<< HEAD
         <AuthInput
           label={'帳號'}
           value={username}
@@ -83,16 +77,6 @@ const LoginPage = () => {
       <Link to="/signup">
         <AuthLinkText>註冊</AuthLinkText>
       </Link>
-=======
-        <AuthInput />
-      </AuthInputContainer>
-
-      <AuthInputContainer>
-        <AuthInput />
-      </AuthInputContainer>
-      <AuthButton>登入</AuthButton>
-      <AuthLinkText>註冊</AuthLinkText>
->>>>>>> 8700042235de5fd5803b7250e53ad1b7232cf8c0
     </AuthContainer>
   );
 };

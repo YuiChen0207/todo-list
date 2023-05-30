@@ -6,7 +6,6 @@ import {
 } from 'components/common/auth.styled';
 import { ACLogoIcon } from 'assets/images';
 import { AuthInput } from 'components';
-<<<<<<< HEAD
 import { Link, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import Swal from 'sweetalert2';
@@ -17,7 +16,7 @@ const SignUpPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
-  const { isAuthenticated, register } = useAuth;
+  const { isAuthenticated, register } = useAuth();
 
   const handleClick = async () => {
     if (!username.length || !password.length || !email.length) return;
@@ -51,10 +50,6 @@ const SignUpPage = () => {
     }
   }, [navigate, isAuthenticated]);
 
-=======
-
-const SignUpPage = () => {
->>>>>>> 8700042235de5fd5803b7250e53ad1b7232cf8c0
   return (
     <AuthContainer>
       <div>
@@ -63,7 +58,6 @@ const SignUpPage = () => {
       <h1>建立您的帳號</h1>
 
       <AuthInputContainer>
-<<<<<<< HEAD
         <AuthInput
           label={'帳號'}
           value={username}
@@ -94,20 +88,6 @@ const SignUpPage = () => {
       <Link to="/login">
         <AuthLinkText>取消</AuthLinkText>
       </Link>
-=======
-        <AuthInput />
-      </AuthInputContainer>
-
-      <AuthInputContainer>
-        <AuthInput />
-      </AuthInputContainer>
-
-      <AuthInputContainer>
-        <AuthInput />
-      </AuthInputContainer>
-      <AuthButton>註冊</AuthButton>
-      <AuthLinkText>取消</AuthLinkText>
->>>>>>> 8700042235de5fd5803b7250e53ad1b7232cf8c0
     </AuthContainer>
   );
 };

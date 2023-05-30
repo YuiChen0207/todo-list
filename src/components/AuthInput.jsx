@@ -22,7 +22,6 @@ const StyledInput = styled.input`
   border-radius: 0px;
 `;
 
-<<<<<<< HEAD
 const AuthInput = ({ label, placeholder, value, type, onChange }) => {
   return (
     <StyledContainer>
@@ -33,13 +32,6 @@ const AuthInput = ({ label, placeholder, value, type, onChange }) => {
         value={value || ''} // 如果外層沒有帶入 props 就預設給一個空字串
         onChange={(e) => onChange?.(e.target.value)}
       />
-=======
-const AuthInput = () => {
-  return (
-    <StyledContainer>
-      <StyledLabel>label</StyledLabel>
-      <StyledInput type="text" placeholder="placeholder" />
->>>>>>> 8700042235de5fd5803b7250e53ad1b7232cf8c0
     </StyledContainer>
   );
 };

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import { createTodo, deleteTodo, getTodos, patchTodo } from 'api/todos';
 import { Footer, Header, TodoCollection, TodoInput } from 'components';
 import { useAuth } from 'contexts/AuthContext';
@@ -9,7 +8,7 @@ const TodoPage = () => {
   const [inputValue, setInputValue] = useState('');
   const [todos, setTodos] = useState([]);
   const navigate = useNavigate();
-  const { isAuthenticated, currentMember } = useAuth;
+  const { isAuthenticated, currentMember } = useAuth();
 
   const handleChange = (value) => {
     setInputValue(value);
@@ -89,39 +88,6 @@ const TodoPage = () => {
     } catch (error) {
       console.error(error);
     }
-=======
-import { Footer, Header, TodoCollection, TodoInput } from 'components';
-import { useState } from 'react';
-
-const dummyTodos = [
-  {
-    title: 'Learn react-router',
-    isDone: true,
-    id: 1,
-  },
-  {
-    title: 'Learn to create custom hooks',
-    isDone: false,
-    id: 2,
-  },
-  {
-    title: 'Learn to use context',
-    isDone: true,
-    id: 3,
-  },
-  {
-    title: 'Learn to implement auth',
-    isDone: false,
-    id: 4,
-  },
-];
-
-const TodoPage = () => {
-  const [todos, setTodos] = useState(dummyTodos);
-
-  const onAddTodo = (newTodo) => {
-    setTodos([...todos, newTodo]);
->>>>>>> 8700042235de5fd5803b7250e53ad1b7232cf8c0
   };
 
   const handleChangeMode = ({ id, isEdit }) => {
@@ -137,7 +103,6 @@ const TodoPage = () => {
       });
     });
   };
-<<<<<<< HEAD
 
   const handleSave = async ({ id, title }) => {
     try {
@@ -199,39 +164,6 @@ const TodoPage = () => {
         todos={todos}
         onSave={handleSave}
         onToggleDone={handleToggleDone}
-=======
-  const handleSave = ({ id, title }) => {
-    setTodos((prevTodos) => {
-      return prevTodos.map((todo) => {
-        if (todo.id === id) {
-          return {
-            ...todo,
-            id,
-            title,
-            isEdit: false,
-          };
-        }
-        return todo;
-      });
-    });
-  };
-
-  const handleDelete = ({ id }) => {
-    setTodos((prevTodos) => {
-      const updatedTodos = prevTodos.filter((todo) => todo.id !== id);
-      return updatedTodos;
-    });
-  };
-
-  return (
-    <div>
-      TodoPage
-      <Header />
-      <TodoInput onAddTodo={onAddTodo} />
-      <TodoCollection
-        todos={todos}
-        onSave={handleSave}
->>>>>>> 8700042235de5fd5803b7250e53ad1b7232cf8c0
         onChangeMode={handleChangeMode}
         onDelete={handleDelete}
       />

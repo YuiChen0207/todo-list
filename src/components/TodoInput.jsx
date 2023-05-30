@@ -1,10 +1,4 @@
-<<<<<<< HEAD
 import styled from 'styled-components';
-=======
-import { useState } from 'react';
-import styled from 'styled-components';
-import { v4 as uuidv4 } from 'uuid';
->>>>>>> 8700042235de5fd5803b7250e53ad1b7232cf8c0
 import clsx from 'clsx';
 
 const StyledAddTodoContainer = styled.div`
@@ -74,34 +68,7 @@ const StyledAddTodoActionContainer = styled.div`
     }
   }
 `;
-<<<<<<< HEAD
 const TodoInput = ({ inputValue, onChange, onKeyDown, onAddTodo }) => {
-=======
-const TodoInput = ({ onAddTodo }) => {
-  const [inputValue, setInputValue] = useState('');
-
-  const onChangeHandler = (e) => {
-    const value = e.target.value;
-    setInputValue(value);
-  };
-
-  const onKeyDownHandler = (e) => {
-    if (e.key === 'Enter') {
-      onAddTodoHandler();
-    }
-  };
-
-  const onAddTodoHandler = () => {
-    if (inputValue.trim() === '') return;
-    onAddTodo({
-      id: uuidv4(),
-      title: inputValue.trim(),
-      isDone: false,
-    });
-    setInputValue('');
-  };
-
->>>>>>> 8700042235de5fd5803b7250e53ad1b7232cf8c0
   return (
     <StyledAddTodoContainer
       className={clsx('', { active: inputValue.length > 0 })}
@@ -113,7 +80,6 @@ const TodoInput = ({ onAddTodo }) => {
           type="text"
           placeholder="新增工作"
           value={inputValue}
-<<<<<<< HEAD
           onChange={(e) => {
             onChange?.(e.target.value);
           }}
@@ -128,14 +94,6 @@ const TodoInput = ({ onAddTodo }) => {
         className={clsx('', { active: inputValue.length > 0 })}
       >
         <button className="btn-reset" onClick={() => onAddTodo?.()}>
-=======
-          onChange={onChangeHandler}
-          onKeyDown={onKeyDownHandler}
-        />
-      </StyledInputContainer>
-      <StyledAddTodoActionContainer className={clsx('', { active: inputValue.length > 0 })}>
-        <button className="btn-reset" onClick={onAddTodoHandler}>
->>>>>>> 8700042235de5fd5803b7250e53ad1b7232cf8c0
           新增
         </button>
       </StyledAddTodoActionContainer>
