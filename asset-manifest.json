@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/YuiChen0207/todo-list/static/css/main.4922d5c4.css",
+    "main.js": "/YuiChen0207/todo-list/static/js/main.3741ec80.js",
+    "static/js/787.17f4b47e.chunk.js": "/YuiChen0207/todo-list/static/js/787.17f4b47e.chunk.js",
+    "static/media/ac-logo.svg": "/YuiChen0207/todo-list/static/media/ac-logo.f4e0f3cb828663732e8d001491c2b394.svg",
+    "index.html": "/YuiChen0207/todo-list/index.html",
+    "static/media/check-hover.svg": "/YuiChen0207/todo-list/static/media/check-hover.5e00062bcf6cba5dbd8ad1a78066e429.svg",
+    "static/media/check-active.svg": "/YuiChen0207/todo-list/static/media/check-active.95ca055ccb9b3ed7ac7e7719b388680e.svg",
+    "static/media/check-circle.svg": "/YuiChen0207/todo-list/static/media/check-circle.30720b46020899b2d89e14826f4cc653.svg",
+    "main.4922d5c4.css.map": "/YuiChen0207/todo-list/static/css/main.4922d5c4.css.map",
+    "main.3741ec80.js.map": "/YuiChen0207/todo-list/static/js/main.3741ec80.js.map",
+    "787.17f4b47e.chunk.js.map": "/YuiChen0207/todo-list/static/js/787.17f4b47e.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4922d5c4.css",
+    "static/js/main.3741ec80.js"
+  ]
+}
